@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using TaskManager.Dtos.Users.Tasks;
+using TaskManager.Models;
+
+namespace TaskManager.Mappers
+{
+    public static class TasksMappers
+    {
+        public static TasksDto ToTasksDto(this Tasks tasksModel)
+        {
+           return new TasksDto{
+                Id = tasksModel.Id,
+                Name = tasksModel.Name,
+                IsDone = tasksModel.IsDone
+
+           };
+
+        }
+        public static Tasks ToTasksFromCreateDto(this CreateTasksRequestsDto tasksDto) 
+        {
+            return new Tasks
+            {
+                Name = tasksDto.Name,
+                IsDone = tasksDto.IsDone
+            };
+        }
+    }
+
+}
